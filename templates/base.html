@@ -1,0 +1,132 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en"> <!--<![endif]-->
+<head>
+    <title>Its a Wrap and Printing</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- Web Fonts -->
+    <link rel='stylesheet' type='text/css'
+          href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/one.style.css' %}">
+    <!-- CSS Header and Footer -->
+    <link rel="stylesheet" href="{% static 'css/headers/header-default.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footers/footer-v1.css' %}">
+    <link rel="stylesheet" href="{% static 'css/one.style.css' %}">
+
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="{% static 'plugins/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/line-icons/line-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/parallax-slider/css/parallax-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/owl-carousel/owl-carousel/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/sky-forms-pro/skyforms/css/sky-forms.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/sky-forms-pro/skyforms/custom/custom-sky-forms-v2.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/fancybox/source/jquery.fancybox.css' %}">
+
+    <!-- CSS Theme -->
+    <link rel="stylesheet" href="{% static 'css/theme-colors/blue.css' %}" id="style_color">
+    <link rel="stylesheet" href="{% static 'css/theme-skins/dark.css' %}">
+    <link rel="stylesheet" href="{% static 'css/blocks.css' %}">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/image-hover/css/img-hover.css' %}">
+
+    <link rel="stylesheet" href="{% static 'plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css' %}">
+	<link rel="stylesheet" href="{% static 'plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/revolution-slider/revolution/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css'%}">
+	<!-- REVOLUTION STYLE SHEETS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'plugins/revolution-slider/revolution/css/settings.css'%}">
+	<!-- REVOLUTION LAYERS STYLES -->
+	<link rel="stylesheet" type="text/css" href="{% static 'plugins/revolution-slider/revolution/css/layers.css'%}">
+	<!-- REVOLUTION NAVIGATION STYLES -->
+	<link rel="stylesheet" type="text/css" href="{% static 'plugins/revolution-slider/revolution/css/navigation.css'%}">
+
+    <!-- CSS Page Style -->
+	<link rel="stylesheet" href="{% static 'css/pages/page_pricing.css' %}">
+  <!-- CSS Theme -->
+  <link rel="stylesheet" href="{% static 'css/agency.style.css'%}">
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+</head>
+<body>
+<div class="wrapper">
+
+    <!--=== Header ===-->
+{% include 'componentes/menu_container.html' %}
+    <div class="header">
+        <div class="container">
+            <!-- Logo -->
+
+        </div>
+        <!--/end container-->
+
+    </div>
+    <!--=== End Header ===-->
+    {% block content %}
+
+    {% endblock %}
+
+    <!--=== Footer Version 1 ===-->
+{% include 'componentes/footer.html' %}
+    <!--=== End Footer Version 1 ===-->
+</div>
+<!--/wrapper-->
+
+
+<!-- JS Global Compulsory -->
+<script type="text/javascript" src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/jquery/jquery-migrate.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+<!-- JS Implementing Plugins -->
+<script type="text/javascript" src="{% static 'plugins/back-to-top.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/smoothScroll.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/parallax-slider/js/modernizr.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/parallax-slider/js/jquery.cslider.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/owl-carousel/owl-carousel/owl.carousel.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/fancybox/source/jquery.fancybox.pack.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/plugins/fancy-box.js' %}"></script>
+<!-- JS Customization -->
+<script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/jquery.parallax.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/image-hover/js/touch.js' %}"></script>
+<!-- JS Page Level -->
+<script type="text/javascript" src="{% static 'js/app.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/plugins/owl-carousel.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/plugins/style-switcher.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/plugins/parallax-slider.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/plugins/cube-portfolio/cube-portfolio-3.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/myJs.js' %}"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        App.init();
+        OwlCarousel.initOwlCarousel();
+        StyleSwitcher.initStyleSwitcher();
+        ParallaxSlider.initParallaxSlider();
+    });
+</script>
+<!--[if lt IE 9]>
+			<script src="{% static 'plugins/respond.js'%}"></script>
+			<script src="{% static 'plugins/html5shiv.js'%}"></script>
+			<script src="{% static 'plugins/placeholder-IE-fixes.js'%}"></script>
+		<![endif]-->
+
+</body>
+</html>

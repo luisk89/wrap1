@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% block content %}
+    {% include 'componentes/slider.html' %}
+    <!--=== Breadcrumbs ===-->
+    <div class="breadcrumbs">
+        <div class="container">
+            <h1 class="pull-left">Audio/Videos &amp; Images</h1>
+            <ul class="pull-right breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li class="active">Audio/Videos &amp; Images</li>
+            </ul>
+        </div>
+    </div><!--/breadcrumbs-->
+    <!--=== End Breadcrumbs ===-->
+    <!--=== Content Part ===-->
+    <div class="container content">
+        <div class="row">
+            <!-- Begin Content -->
+            <div class="col-md-12">
+                <!-- Image Examples -->
+                <div class="heading heading-v1 margin-bottom-40">
+                    <h2>Image Gallery</h2>
+
+                    <p></p>
+                </div>
+
+                <div class="row margin-bottom-30">
+                    {% for g in gallery %}
+                        {% if g.photo %}
+                            <div class="col-sm-2 sm-margin-bottom-30">
+                                <div class="thumbnail">
+                                    <a href="{{ g.photo.url }}" rel="gallery2" class="fancybox img-hover-v1"
+                                       title="{{ g.title }}">
+                                    <span><img width="280" height="357" class="img-responsive" src="{{ g.photo|thumbnail_url:'gallery' }}"
+                                               alt=""></span>
+                                    </a>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+
+                <!-- End Image Examples -->
+                <div class="clearfix margin-bottom-20">
+                    <hr>
+                </div>
+                <!-- Video Blocks -->
+                <div class="heading heading-v1 margin-bottom-40">
+                    <h2>Video &amp; Youtube Videos</h2>
+
+                    <p></p>
+                </div>
+                <div class="row margin-bottom-60">
+                    <!-- Vimeo Video -->
+                    {% for v in gallery %}
+                        <div class="col-md-6">
+                            {% if v.video %}
+                                <div class="responsive-video md-margin-bottom-40">
+
+                                    <iframe width="100%" src="{{ v.video.url }}" frameborder="0"
+                                            allowfullscreen></iframe>
+
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                    <!-- End Vimeo Video -->
+                </div>
+                <!-- End Video Blocks -->
+
+            </div>
+            <!-- End Content -->
+        </div>
+    </div><!--/container-->
+
+{% endblock %}

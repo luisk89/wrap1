@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block content %}
+    {% include 'componentes/slider.html' %}
+    <!--=== Breadcrumbs ===-->
+    <div class="breadcrumbs">
+        <h1 class="pull-left">{{ service.name }}</h1>
+        <ul class="pull-right breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li><a href="/services/">Services</a></li>
+            <li class="active">{{ service.name }}</li>
+        </ul>
+
+    </div><!--/breadcrumbs-->
+    <!--=== End Breadcrumbs ===-->
+    <div class="bg-color-light">
+        <div class="container content-sm">
+            <!-- Blog Posts -->
+            <div class="news-v3 bg-color-white margin-bottom-60">
+                {% for s in service.servicecontent_set.all %}
+
+                    <img class="img-responsive full-width" src="{{ s.foto_portada.url }}" alt="">
+
+                    <div class="news-v3-in">
+
+                    <h2><a href="#">{{ s.name }}</a></h2>
+
+                    <p>{{ s.texto }}</p>
+                {% endfor %}
+                {% if service.pricing_set.exists %}
+                    <div class="clearfix margin-bottom-20">
+                        <hr>
+                    </div>
+                    <div class="heading heading-v1 margin-bottom-20">
+                        <h2>FULL WRAPS</h2>
+
+                        <p>{{ service.name }}</p>
+                    </div>
+                    <br>
+                    <br>
+                    {#                    pricing tables#}
+                    <div class="row margin-bottom-40">
+                        {% for a in service.pricing_set.all %}
+                            <div class="col-md-3 col-sm-6">
+                                <div class="pricing hover-effect">
+                                    <div class="pricing-head">
+                                        <h3>{{ a.name }}</h3>
+                                        <h4><i>${{ a.precio_min }}</i>-<i>${{ a.precio_max }}</i></h4>
+                                    </div>
+
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+
+                {% endif %}
+
+
+                </div>
+
+
+            </div>
+
+            {#            <!-- End Blog Posts -->pricing_set#}
+
+
+            <!-- End Blog Posts -->
+        </div>
+    </div>
+{% endblock %}

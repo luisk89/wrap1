@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block content %}
+{% include 'componentes/slider.html' %}
+        <!--=== Breadcrumbs ===-->
+    <div class="breadcrumbs">
+        <div class="container">
+            <h1 class="pull-left">Contact us</h1>
+            <ul class="pull-right breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li class="active">Contact us</li>
+            </ul>
+        </div>
+    </div><!--/breadcrumbs-->
+    <!--=== End Breadcrumbs ===-->
+<div class="g-section-bg-gray text-center g-pt-60 g-pb-70 g-heading-v7" id="Contact">
+    <div class="container">
+        <h3>Have A Questions?</h3>
+
+        <form action="/contact/" class="sky-form" method="post" id="sky-form3" novalidate="novalidate">{% csrf_token %}
+            <fieldset>
+                <div class="row">
+                    <div class="col-sm-6 g-mb-25">
+                        <label class="input">
+                            {{ form.name }}
+                            {{ form.name.errors }}
+
+                        </label>
+                    </div>
+                    <div class="col-sm-6 g-mb-25">
+                        <label class="input">
+                            {{ form.phone }}
+                            {{ form.phone.errors }}
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 g-mb-25">
+                        <label class="input">
+                            {{ form.mail }}
+                            {{ form.mail.errors }}
+                        </label>
+                    </div>
+                    <div class="col-sm-6 g-mb-25">
+                        <label class="input">
+                            {{ form.subject }}
+                            {{ form.subject.errors }}
+                        </label>
+                    </div>
+                </div>
+                <div class="row g-mb-35">
+                    <div class="col-sm-12">
+                        <label class="textarea textarea-expandable">
+                            {{ form.message }}
+                            {{ form.message.errors }}
+                        </label>
+                    </div>
+                </div>
+                <button id="enviarform" type="submit" class="btn-u btn-u-lg btn-u-red btn-u-upper">Send Message</button>
+            </fieldset>
+
+            <!-- Success Message -->
+            <div class="message" id="message_send">
+                <i class="rounded-x fa fa-check" ></i>
+                <p>{{ messages }}</p>
+            </div>
+        </form>
+    </div>
+</div>
+            <!-- GMaps -->
+    <div class="GMap-stand-alone" id="map"></div>
+    <!-- END GMaps -->
+
+{% endblock %}

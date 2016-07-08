@@ -1,0 +1,28 @@
+{% load static from staticfiles %}
+{% load thumbnail %}
+<div class="container content job-partners">
+    <div class="title-box-v2">
+        <h2>Who <span class="color-red">we</span> are ? </h2>
+
+        <p>It's a wrap and printing has come together to serve south Florida with true passion and over 10 years of
+            experience. As a family business we take pride in our work ethic and artistic qualities to serve our
+            community. Our graphic designers and exquisite artists have come together to serve state of the art
+            performance to our customers..</p>
+    </div>
+    <div class="clearfix margin-bottom-20">
+        <hr>
+    </div>
+    <ul class="list-inline our-clients" id="effect-2">
+        {% for par in partners %}
+        <li>
+            <figure>
+                <img src="{{ par.photo|thumbnail_url:'partner' }}" alt="">
+
+                <div class="img-hover">
+                    <h4>{{ par.name }}</h4>
+                </div>
+            </figure>
+        </li>
+        {% endfor %}
+     </ul>
+</div>

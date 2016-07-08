@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% load thumbnail %}
+{% block content %}
+    <!--=== Slider ===-->
+    {% include 'componentes/slider.html' %}
+    <!--=== End Slider ===-->
+
+    <!--=== Content Part ===-->
+    <div class="container content">
+
+        <div class="row high-rated margin-bottom-20" id="Services">
+            <!-- Easy Block -->
+            {% for ser in services %}
+                <div class="col-md-3 col-sm-6 md-margin-bottom-40">
+                <div class="easy-block-v1">
+                    <div class="easy-block-v1-badge rgba-blue">{{ ser.tipo }}</div>
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li class="rounded-x" data-target="#carousel-example-generic" data-slide-to="0"></li>
+                            <li class="rounded-x active" data-target="#carousel-example-generic"
+                                data-slide-to="1"></li>
+                            <li class="rounded-x" data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            {% for it in ser.item_set.all %}
+                                {% if it.is_active %}
+                                    <div class="item active">
+                                {% else %}
+                                    <div class="item">
+                                {% endif %}
+                            <img alt="" src='{{ it.photo|thumbnail_url:'item'}}'>
+                            </div>
+                            {% endfor %}
+                            </div>
+                        </div>
+                        <div class="overflow-h">
+                            <h3>{{ ser.name }}</h3>
+
+                            <div class="star-vote pull-right">
+                                <ul class="list-inline">
+                                    <li><i class="color-blue fa fa-star"></i></li>
+                                    <li><i class="color-blue fa fa-star"></i></li>
+                                    <li><i class="color-blue fa fa-star"></i></li>
+                                    <li><i class="color-blue fa fa-star"></i></li>
+                                    <li><i class="color-blue fa fa-star"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li>{{ ser.resumen }}
+                            </li>
+
+                        </ul>
+                        <a class="btn-u btn-u-sm" href="/service/{{ ser.id }}">View More</a>
+                    </div>
+                </div>
+                <!-- End Easy Block -->
+            {% endfor %}
+            <!-- End Easy Block -->
+            </div>
+            <!-- Easy Blocks v1 -->
+
+            <!-- End Easy Blocks v1 -->
+
+            <div class="clearfix margin-bottom-20">
+                <hr>
+            </div>
+
+            <!-- Easy Blocks v2 -->
+
+            <!-- End Easy Blocks v2 -->
+        </div>
+    </div>
+
+        {#    partners#}
+        {% include 'componentes/partners.html' %}
+
+{% endblock %}

@@ -1,0 +1,120 @@
+{% load static from staticfiles %}
+{% load thumbnail %}
+<div class="footer-v1">
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- About -->
+                <div class="col-md-4 md-margin-bottom-40">
+                    <a href="{% url 'home' %}"><img id="logo-footer" class="footer-logo"
+                                                    src="{{ contacto.logo|thumbnail_url:'logo' }}" alt=""></a>
+
+                    <p>It's a wrap and printing has come together to serve south Florida with true passion and over 10
+                        years of experience. As a family business we take pride in our work ethic and artistic qualities
+                        to serve our community. Our graphic designers and exquisite artists have come together to serve
+                        state of the art performance to our customers.</p>
+
+                </div>
+                <!--/col-md-3-->
+                <!-- End About -->
+                <!--/col-md-3-->
+                <!-- End Latest -->
+
+                <!-- Link List -->
+                <div class="col-md-4 md-margin-bottom-40">
+                    <div class="headline"><h2>Useful Links</h2></div>
+                    <ul class="list-unstyled link-list">
+                        <li><a href="/">Home</a><i class="fa fa-angle-right"></i></li>
+                        <li><a href="#Services">Services</a><i class="fa fa-angle-right"></i></li>
+                        <li><a href="/gallery">Gallery</a><i class="fa fa-angle-right"></i></li>
+                        <li><a href="/#Contact">Contact us</a><i class="fa fa-angle-right"></i></li>
+                    </ul>
+                </div>
+                <!--/col-md-3-->
+                <!-- End Link List -->
+
+                <!-- Address -->
+                <div class="col-md-4 map-img md-margin-bottom-40">
+                    <div class="headline"><h2>Contact Us</h2></div>
+                    <address class="md-margin-bottom-40">
+                        {{ contacto.address }}<br/>
+                        Phone: {{ contacto.phone_number }} <br/>
+                        Fax: {{ contacto.fax }} <br/>
+                        Email: <a href="mailto:{{ contacto.mail_contact }}" class="">{{ contacto.mail_contact }}</a>
+                    </address>
+                </div>
+                <!--/col-md-3-->
+                <!-- End Address -->
+            </div>
+        </div>
+    </div>
+    <!--/footer-->
+
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>
+                        2016 &copy; All Rights Reserved.
+
+                    </p>
+                </div>
+
+                <!-- Social Links -->
+                <div class="col-md-6">
+                    <ul class="footer-socials list-inline">
+                        <li>
+                            <a href="{{ contacto.facebook }}" class="tooltips" data-toggle="tooltip"
+                               data-placement="top" title=""
+                               data-original-title="Facebook">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ contacto.skype }}" class="tooltips" data-toggle="tooltip" data-placement="top"
+                               title=""
+                               data-original-title="Skype">
+                                <i class="fa fa-skype"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ contacto.google }}" class="tooltips" data-toggle="tooltip" data-placement="top"
+                               title=""
+                               data-original-title="Google Plus">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title=""
+                               data-original-title="Linkedin">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title=""
+                               data-original-title="Pinterest">
+                                <i class="fa fa-pinterest"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ contacto.twitter }}" class="tooltips" data-toggle="tooltip" data-placement="top"
+                               title=""
+                               data-original-title="Twitter">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ contacto.instagram }}" class="tooltips" data-toggle="tooltip"
+                               data-placement="top" title=""
+                               data-original-title="Instagram">
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- End Social Links -->
+            </div>
+        </div>
+    </div>
+    <!--/copyright-->
+</div>
