@@ -1,0 +1,7 @@
+home bolitas delas imagenes.. q camine
+#suscribte to our new weekly de home aspire 9
+about us de home aspire
+#q no salga el mismo icono en los servicios
+#url por slug
+#texto en h1--ok
+#Banner para cada pagina , ademas del home , independientemente(declarar campo bannertop en cada modelo)

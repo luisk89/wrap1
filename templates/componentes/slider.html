@@ -1,31 +1,32 @@
-  {% load static from staticfiles %}
-  {% load thumbnail %}
-   <div class="slider-inner">
-        <div id="da-slider" class="da-slider" style="background:transparent url({{ slider.image|thumbnail_url:'slider' }}) repeat 0% 0%;">
-            <div class="da-slide">
-                <h2><i>COLOR CHANGE</i> <br/> <i>STARTING AT $999</i></h2>
+{% load static from staticfiles %}
+{% load thumbnail %}
+<div class="slider-inner">
+    <div id="da-slider" class="da-slider"
+         style="background:transparent url({{ slider.image|thumbnail_url:'slider' }}) repeat 0% 0%;">
+        <div class="da-slide">
+            <h2><i>COLOR CHANGE</i> <br/> <i>STARTING AT $999</i></h2>
 
-
-{#                <div class="da-img"><img class="img-responsive" src="{% static 'plugins/parallax-slider/img/1-logo.png' %}"#}
-{#                                         alt=""></div>#}
-            </div>
-            <div class="da-slide">
-                <h2><i>LETERRING &amp; STRIPES </i> <br/> <i>STICKERS &amp; RACING </i> <br/> <i>MANY MORE</i></h2>
-
-               <div class="da-img">
-                    {#						<iframe src="http://player.vimeo.com/video/47911018" width="530" height="300" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>#}
-                </div>
-            </div>
-            <div class="da-slide">
-                <h2><i>SIGNS &amp;  PRINTING ALL </i></h2>
-
-                <p><i>MATERIALS</i></p>
-
-                <div class="da-img"></div>
-            </div>
-            <div class="da-arrows">
-                <span class="da-arrows-prev"></span>
-                <span class="da-arrows-next"></span>
-            </div>
+            {##}
+            {#                <div class="da-img"><img class="img-responsive" src="{{ contacto.logo|thumbnail_url:'img_slider' }}"#}
+            {#                                         alt=""></div>#}
         </div>
-    </div><!--/slider-->
+        <div class="da-slide">
+            <h2><i>LETERRING &amp; STRIPES </i> <br/> <i>STICKERS &amp; RACING </i> <br/> <i>MANY MORE</i></h2>
+
+
+            <div class="da-img"><img class="img-responsive" src="{{ contacto.logo|thumbnail_url:'img_slider' }}"
+                                     alt=""></div>
+        </div>
+        <div class="da-slide">
+            <h2><i>SIGNS &amp; PRINTING ALL </i></h2>
+
+            <p><i>MATERIALS</i></p>
+
+            <div class="da-img"></div>
+        </div>
+        <div class="da-arrows">
+            <span class="da-arrows-prev"></span>
+            <span class="da-arrows-next"></span>
+        </div>
+    </div>
+</div><!--/slider-->

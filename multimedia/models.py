@@ -21,7 +21,7 @@ class gallery(models.Model):
     publish = models.BooleanField(default=True)
     categoria=models.ForeignKey(categoria,null=True,blank=True)
     video=models.FileField(upload_to='gallery/video',blank=True,null=True)
-
+    bannertop=models.ImageField(upload_to='Photo/banner',blank=True,null=True)
     objects = EntryQuerySet.as_manager()
 
     _metadata = {

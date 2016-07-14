@@ -14,14 +14,8 @@
             {% for ser in services %}
                 <div class="col-md-3 col-sm-6 md-margin-bottom-40">
                 <div class="easy-block-v1">
-                    <div class="easy-block-v1-badge rgba-blue">{{ ser.tipo }}</div>
+                    <div class="easy-block-v1-badge rgba-red">{{ ser.tipo }}</div>
                     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li class="rounded-x" data-target="#carousel-example-generic" data-slide-to="0"></li>
-                            <li class="rounded-x active" data-target="#carousel-example-generic"
-                                data-slide-to="1"></li>
-                            <li class="rounded-x" data-target="#carousel-example-generic" data-slide-to="2"></li>
-                        </ol>
                         <div class="carousel-inner">
                             {% for it in ser.item_set.all %}
                                 {% if it.is_active %}
@@ -29,7 +23,7 @@
                                 {% else %}
                                     <div class="item">
                                 {% endif %}
-                            <img alt="" src='{{ it.photo|thumbnail_url:'item'}}'>
+                            <img alt="" src='{{ it.photo|thumbnail_url:'item' }}'>
                             </div>
                             {% endfor %}
                             </div>
@@ -39,11 +33,11 @@
 
                             <div class="star-vote pull-right">
                                 <ul class="list-inline">
-                                    <li><i class="color-blue fa fa-star"></i></li>
-                                    <li><i class="color-blue fa fa-star"></i></li>
-                                    <li><i class="color-blue fa fa-star"></i></li>
-                                    <li><i class="color-blue fa fa-star"></i></li>
-                                    <li><i class="color-blue fa fa-star"></i></li>
+                                    <li><i class="color-red fa fa-star"></i></li>
+                                    <li><i class="color-red fa fa-star"></i></li>
+                                    <li><i class="color-red fa fa-star"></i></li>
+                                    <li><i class="color-red fa fa-star"></i></li>
+                                    <li><i class="color-red fa fa-star"></i></li>
                                 </ul>
                             </div>
                         </div>
@@ -52,7 +46,8 @@
                             </li>
 
                         </ul>
-                        <a class="btn-u btn-u-sm" href="/service/{{ ser.id }}">View More</a>
+                        <a class="btn btn-danger" href="/service/{{ ser.slug }}"><i class="fa fa-search"></i> View More</a>
+
                     </div>
                 </div>
                 <!-- End Easy Block -->
@@ -73,7 +68,7 @@
         </div>
     </div>
 
-        {#    partners#}
-        {% include 'componentes/partners.html' %}
-
+    {#    partners#}
+    {% include 'componentes/partners.html' %}
+    {% include 'componentes/newsletter.html' %}
 {% endblock %}

@@ -34,3 +34,5 @@ class Services(ListView):
         context['partners'] = partner.objects.all()
         return context
 
+
+

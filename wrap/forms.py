@@ -1,6 +1,6 @@
 from django import forms
 from django.core.mail.message import EmailMultiAlternatives
-from content.models import Inbox
+from content.models import Inbox, news
 
 __author__ = 'Luisk'
 
@@ -30,3 +30,23 @@ class formulario(forms.Form):
         data = self.cleaned_data
         reserva=Inbox(name=data['name'], mail_contact=data['mail'], phone_number=data['phone'], message=data['message'],subject=data['subject'])
         reserva.save()
+
+class form_news(forms.Form):
+    class Meta:
+        model=news
+
+    email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Email','type':'email','size':'30','required':'required','class':'form-control placeholder'}),required=True)
+
+    def send_email(self):
+        email=self.cleaned_data['mail']
+        msg= EmailMultiAlternatives(subject= 'Newsletter-new inscription',
+                        from_email = email,
+                        to=['bigbosss89@gmail.com'])
+        html_content = '<h5>Mail: %s</h5>' % (email)
+        msg.attach_alternative(html_content, "text/html")
+        msg.send()
+
+    def save(self):
+        data = self.cleaned_data
+        noticias=news(email=data['email'])
+        noticias.save()

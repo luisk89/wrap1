@@ -1,11 +1,30 @@
 {% extends 'base.html' %}
 {% load static from staticfiles %}
+{% load thumbnail %}
 {% block content %}
-{% include 'componentes/slider.html' %}
-        <!--=== Breadcrumbs ===-->
+    <div class="interactive-slider-v2 interactive-slider-v2-md"
+         style="background: url({{ contacto.bannertop|thumbnail_url:'banner' }}) no-repeat;background-size: cover;
+                 background-position: center center;">
+        <div class="container">
+            <h1 class="cd-headline letters type">
+                <span>You want</span>
+					<span class="cd-words-wrapper">
+						<b class="is-hidden" style="opacity: 1;"><i class="out">S</i><i class="out">t</i><i class="out">y</i><i
+                                class="out">l</i><i class="out">e</i></b>
+						<b class="is-hidden" style="opacity: 1;"><i class="out">C</i><i class="out">r</i><i class="out">e</i><i
+                                class="out">a</i><i class="out">t</i><i class="out">i</i><i class="out">v</i><i class="out">i</i><i class="out">t</i><i class="out">y</i></b>
+						<b class="is-visible" style="opacity: 1;"><i class="in">i</i><i class="in">n</i><i
+                                class="in">n</i><i class="in">o</i><i class="in">v</i><i class="i">a</i><i class="in">t</i><i
+                                class="in">i</i><i class="out">o</i><i class="out">n</i></b>
+					</span>
+            </h1>
+
+            <p>Contact us...</p>
+        </div>
+    </div>
+    <!--=== Breadcrumbs ===-->
     <div class="breadcrumbs">
         <div class="container">
-            <h1 class="pull-left">Contact us</h1>
             <ul class="pull-right breadcrumb">
                 <li><a href="/">Home</a></li>
                 <li class="active">Contact us</li>
@@ -13,62 +32,66 @@
         </div>
     </div><!--/breadcrumbs-->
     <!--=== End Breadcrumbs ===-->
-<div class="g-section-bg-gray text-center g-pt-60 g-pb-70 g-heading-v7" id="Contact">
-    <div class="container">
-        <h3>Have A Questions?</h3>
+    <div class="g-section-bg-gray text-center g-pt-60 g-pb-70 g-heading-v7" id="Contact">
+        <div class="container">
+            <h3>Have A Questions?</h3>
 
-        <form action="/contact/" class="sky-form" method="post" id="sky-form3" novalidate="novalidate">{% csrf_token %}
-            <fieldset>
-                <div class="row">
-                    <div class="col-sm-6 g-mb-25">
-                        <label class="input">
-                            {{ form.name }}
-                            {{ form.name.errors }}
+            <form action="/contact/" class="sky-form" method="post" id="sky-form3"
+                  novalidate="novalidate">{% csrf_token %}
+                <fieldset>
+                    <div class="row">
+                        <div class="col-sm-6 g-mb-25">
+                            <label class="input">
+                                {{ form.name }}
+                                {{ form.name.errors }}
 
-                        </label>
+                            </label>
+                        </div>
+                        <div class="col-sm-6 g-mb-25">
+                            <label class="input">
+                                {{ form.phone }}
+                                {{ form.phone.errors }}
+                            </label>
+                        </div>
                     </div>
-                    <div class="col-sm-6 g-mb-25">
-                        <label class="input">
-                            {{ form.phone }}
-                            {{ form.phone.errors }}
-                        </label>
+                    <div class="row">
+                        <div class="col-sm-6 g-mb-25">
+                            <label class="input">
+                                {{ form.mail }}
+                                {{ form.mail.errors }}
+                            </label>
+                        </div>
+                        <div class="col-sm-6 g-mb-25">
+                            <label class="input">
+                                {{ form.subject }}
+                                {{ form.subject.errors }}
+                            </label>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6 g-mb-25">
-                        <label class="input">
-                            {{ form.mail }}
-                            {{ form.mail.errors }}
-                        </label>
+                    <div class="row g-mb-35">
+                        <div class="col-sm-12">
+                            <label class="textarea textarea-expandable">
+                                {{ form.message }}
+                                {{ form.message.errors }}
+                            </label>
+                        </div>
                     </div>
-                    <div class="col-sm-6 g-mb-25">
-                        <label class="input">
-                            {{ form.subject }}
-                            {{ form.subject.errors }}
-                        </label>
-                    </div>
-                </div>
-                <div class="row g-mb-35">
-                    <div class="col-sm-12">
-                        <label class="textarea textarea-expandable">
-                            {{ form.message }}
-                            {{ form.message.errors }}
-                        </label>
-                    </div>
-                </div>
-                <button id="enviarform" type="submit" class="btn-u btn-u-lg btn-u-red btn-u-upper">Send Message</button>
-            </fieldset>
+                    <button id="enviarform" type="submit" class="btn-u btn-u-lg btn-u-red btn-u-upper">Send Message
+                    </button>
+                </fieldset>
 
-            <!-- Success Message -->
-            <div class="message" id="message_send">
-                <i class="rounded-x fa fa-check" ></i>
-                <p>{{ messages }}</p>
-            </div>
-        </form>
+                <!-- Success Message -->
+                <div class="message" id="message_send">
+                    <i class="rounded-x fa fa-check"></i>
+
+                    <p>{{ messages }}</p>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
-            <!-- GMaps -->
+    <!-- GMaps -->
     <div class="GMap-stand-alone" id="map"></div>
     <!-- END GMaps -->
+
 
 {% endblock %}

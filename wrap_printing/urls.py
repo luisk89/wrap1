@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.views.generic.base import TemplateView
 from content import views
 from multimedia.views import Gallery
-from wrap.views import Index, Contact
+from wrap.views import Index, Contact, unsuscribe
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -30,12 +30,16 @@ urlpatterns = [
     url(r'^$',Index.as_view(), name="home"),
 
     url(r'^gallery/',Gallery.as_view(), name="gallery"),
-    #url(r'^enviarform/',Index.enviar_form_ajax, name="contact"),
+    # url(r'^enviarform/',Index.enviar_form_ajax, name="news"),
+    # url(r'^del-news/(?P<email>\S+)$',Index.del_news, name="news"),
+    url(r'^see-you/', unsuscribe.as_view(), name="unsuscribe"),
 
     url(r'^contact/',Contact.as_view(), name="contactform"),
 
-    url(r'^service/(?P<pk>\S+)$', views.ServicesDetail.as_view(), name="service-single"),
+    url(r'^service/(?P<slug>\S+)$', views.ServicesDetail.as_view(), name="service-single"),
     url(r'^services/', views.Services.as_view(), name="services"),
+
+    url(r'^test/',TemplateView.as_view(template_name="base_gallery.html")),
 ]
 
 if getattr(settings, "DEBUG", False):

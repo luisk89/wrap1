@@ -4,18 +4,7 @@
 $(document).ready(
     function () {
 
-        /*   $('#id_id_alumno').attr("value", function (indiceArray) {
-         //indiceArray tiene el índice de este elemento en el objeto jQuery
-         var f = new Date();
-         return (f.getFullYear()-'2000');
-         });*/
-        //terminar para poner foto al subirla
-        $("#id_foto").change(function (evento) {
-                evento.preventDefault();
-                $("#foto").attr('src', '/media/fotos/' + $("#id_foto").val())
-                // /$("#foto").attr("src",$())
-            }
-        )
+
         var formAjaxSubmit = function (form, modal) {
             $(form).submit(function (e) {
                 e.preventDefault();
@@ -43,15 +32,12 @@ $(document).ready(
 
 $('#enviarform').on('click',Enviar)
 function Enviar(){
-    console.log('asasassasa')
-    var name=$('#id_name').val()
-    var phone=$('#id_phone').val()
-    var mail=$('#id_mail').val()
-    var subject=$('#id_subject').val()
-    var message=$('#id_message').val()
+
+    var email=$('#id_email').val()
+    console.log(email)
 
     $.ajax({
-        data:{'name':name,'phone':phone,'mail':mail,'subject':subject,'message':message},
+        data:{'email':email},
         url:'/enviarform/',
         type:'post',
         success : function(data){

@@ -39,9 +39,10 @@
     <link rel="stylesheet" href="{% static 'plugins/sky-forms-pro/skyforms/css/sky-forms.css' %}">
     <link rel="stylesheet" href="{% static 'plugins/sky-forms-pro/skyforms/custom/custom-sky-forms-v2.css' %}">
     <link rel="stylesheet" href="{% static 'plugins/fancybox/source/jquery.fancybox.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/animated-headline/css/animated-headline.css' %}">
 
     <!-- CSS Theme -->
-    <link rel="stylesheet" href="{% static 'css/theme-colors/blue.css' %}" id="style_color">
+    <link rel="stylesheet" href="{% static 'css/theme-colors/red.css' %}" id="style_color">
     <link rel="stylesheet" href="{% static 'css/theme-skins/dark.css' %}">
     <link rel="stylesheet" href="{% static 'css/blocks.css' %}">
     <link rel="stylesheet" href="{% static 'css/app.css' %}">
@@ -114,9 +115,18 @@
 <script type="text/javascript" src="{% static 'plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/plugins/cube-portfolio/cube-portfolio-3.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/myJs.js' %}"></script>
+
+<script type="text/javascript" src="{% static 'plugins/counter/waypoints.min.js'%}"></script>
+<script type="text/javascript" src="{% static 'plugins/counter/jquery.counterup.min.js'%}"></script>
+<script type="text/javascript" src="{% static 'plugins/wow-animations/js/wow.min.js'%}"></script>
+<script src="{% static 'plugins/animated-headline/js/animated-headline.js'%}"></script>
+
 <script type="text/javascript">
     jQuery(document).ready(function () {
         App.init();
+        new WOW().init();
+        App.initCounter();
+		App.initParallaxBg();
         OwlCarousel.initOwlCarousel();
         StyleSwitcher.initStyleSwitcher();
         ParallaxSlider.initParallaxSlider();

@@ -6,6 +6,7 @@ from django.db import models
 
 
 # Create your models here.
+from django.utils.timezone import now
 
 
 class slider(models.Model):
@@ -29,6 +30,7 @@ class contact(models.Model):
     google = models.CharField(max_length=150, blank=True)
     instgram = models.CharField(max_length=150, blank=True)
     skype = models.CharField(max_length=150, blank=True)
+    bannertop=models.ImageField(upload_to='Photo/banner',blank=True,null=True)
 
     def __unicode__(self):
         return self.address
@@ -52,7 +54,9 @@ class Service(models.Model):
     name = models.CharField(max_length=250)
     resumen = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
-
+    slug = models.SlugField(max_length=200, unique=True)
+    bannertop=models.ImageField(upload_to='Photo/banner',null=True,blank=True)
+    icon=models.CharField(max_length=250,blank=True,null=True)
     def __unicode__(self):
         return self.name
 
@@ -85,3 +89,9 @@ class pricing(models.Model):
     name = models.CharField(max_length=20)
     precio_min = models.IntegerField()
     precio_max = models.IntegerField()
+
+class news(models.Model):
+    email = models.EmailField(max_length=70,unique=True)
+    alta_date_created=models.DateField(auto_now_add=now())
+    baja_date_created = models.DateField(null=True,blank=True)
+    is_active=models.BooleanField(default=True)

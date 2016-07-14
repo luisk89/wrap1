@@ -156,8 +156,10 @@ THUMBNAIL_ALIASES = {
     '': {
         'logo': {'size': (103, 39), 'crop': False},
         'slider':{'size':(2046,427),'crop':False},
+        'img_slider':{'size':(495,224),'crop':False},
         'item':{'size':(263,147),'crop':False},
         'partner':{'size':(150,72),'crop':False},
-        'gallery':{'size':(262.5,165.91),'crop':False}
+        'gallery':{'size':(262.5,165.91),'crop':False},
+        'banner':{'size':(1920,800),'crop':False},
     }
 }

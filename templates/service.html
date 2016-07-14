@@ -1,7 +1,15 @@
 {% extends 'base.html' %}
 {% load static from staticfiles %}
+{% load thumbnail %}
 {% block content %}
-    {% include 'componentes/slider.html' %}
+    <div class="breadcrumbs-v3"
+         style="background: url({{ service.bannertop|thumbnail_url:'banner' }}) no-repeat;background-size: cover;
+                 background-position: center center;">
+        <div class="container text-center">
+            <h1>Our services</h1>
+        </div>
+        <!--/end container-->
+    </div>
     <!--=== Breadcrumbs ===-->
     <div class="breadcrumbs">
         <h1 class="pull-left">{{ service.name }}</h1>
@@ -23,7 +31,7 @@
 
                     <div class="news-v3-in">
 
-                    <h2><a href="#">{{ s.name }}</a></h2>
+                    <h2>{{ s.name }}</h2>
 
                     <p>{{ s.texto }}</p>
                 {% endfor %}
@@ -68,4 +76,5 @@
             <!-- End Blog Posts -->
         </div>
     </div>
+    {% include 'componentes/newsletter.html' %}
 {% endblock %}
